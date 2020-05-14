@@ -1,12 +1,11 @@
 import React from "react";
 import {StyleSheet, Text, View} from "react-native";
-import {gray, blue} from "../utils/helpers";
+import {blue, gray} from "../utils/helpers";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 
 const DeckCard = props => {
     const {title, numberOfCards} = props;
-
     return (
         <View style={styles.deckCard}>
             <Text style={styles.title}>{title}</Text>
@@ -18,7 +17,7 @@ const DeckCard = props => {
 
 function mapStateToProps(decks, {title}) {
     return {
-        numberOfCards: decks[title] ? decks[title].length : 0
+        numberOfCards: decks[title] ? decks[title].questions.length : 0
     };
 }
 

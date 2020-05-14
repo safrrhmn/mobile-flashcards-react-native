@@ -62,7 +62,6 @@ class NewCard extends Component {
         if ((errorMessage === false) & (question !== " ") & (answer !== "")) {
             //Update the store of the app
             const card = {question, answer};
-            console.log(card);
             dispatch(addNewCard(title, card));
 
             //Update the our "DB"

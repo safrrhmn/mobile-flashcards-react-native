@@ -46,7 +46,7 @@ class NewDeck extends Component {
 
         if (title !== "" && included === false) {
             dispatch(addNewDeck(title));
-            saveDeck(title).then(r => console.log(r));
+            saveDeck(title);
             this.setState({
                 title: "",
                 errorMessage: false

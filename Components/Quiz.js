@@ -40,13 +40,15 @@ class Quiz extends Component {
             this.setState(prevState => ({
                 ...prevState,
                 index: prevState.index + 1,
-                correct: prevState.correct + 1
+                correct: prevState.correct + 1,
+                showAnswer: false
             }));
         } else {
             this.setState(prevState => ({
                 ...prevState,
                 showQueryResults: true,
-                correct: prevState.correct + 1
+                correct: prevState.correct + 1,
+                showAnswer: false
             }));
         }
     }
@@ -58,12 +60,14 @@ class Quiz extends Component {
         if (index + 1 < numberOfQuestions) {
             this.setState(prevState => ({
                 ...prevState,
-                index: prevState.index + 1
+                index: prevState.index + 1,
+                showAnswer: false
             }));
         } else {
             this.setState(prevState => ({
                 ...prevState,
-                showQueryResults: true
+                showQueryResults: true,
+                showAnswer: false
             }));
         }
     }
@@ -72,7 +76,6 @@ class Quiz extends Component {
         const {route, numberOfQuestions, questions, navigation} = this.props;
         const {title} = route.params;
         const {index, showAnswer, showQueryResults, correct} = this.state;
-        console.log(this.props);
 
         //answer and question
         let answer = null;

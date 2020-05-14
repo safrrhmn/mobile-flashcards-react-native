@@ -34,7 +34,7 @@ export function setLocalNotification() {
             if (data === null) {
                 Permissions.askAsync(Permissions.NOTIFICATIONS).then(({status}) => {
                     if (status === "granted") {
-                        Notifications.cancelAllScheduledNotificationsAsync();
+                        Notifications.cancelAllScheduledNotificationsAsync().then(r => console.log("notification set"));
 
                         let tomorrow = new Date();
                         tomorrow.setDate(tomorrow.getDate() + 1);
@@ -44,9 +44,9 @@ export function setLocalNotification() {
                         Notifications.scheduleLocalNotificationAsync(createNotification(), {
                             time: tomorrow,
                             repeat: "day"
-                        });
+                        }).then(r => console.log("Notifications.scheduleLocalNotificationAsync()"));
 
-                        AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
+                        AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true)).then(r => console.log(r));
                     }
                 });
             }

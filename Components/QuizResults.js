@@ -1,10 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {StyleSheet, Text, View} from "react-native";
-import {gray, blue} from "../utils/helpers";
+import {blue, clearLocalNotifications, gray, setLocalNotification} from "../utils/helpers";
 
 const QuizResults = props => {
     const {correct, numberOfQuestions} = props;
     const result = (correct / numberOfQuestions) * 100;
+
+    useEffect(() => {
+        clearLocalNotifications();
+        setLocalNotification();
+    })
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>You got</Text>

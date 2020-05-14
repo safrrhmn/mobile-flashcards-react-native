@@ -25,7 +25,7 @@ export function saveCardToDeck(title, newQuestion) {
                 data[dTitle].questions.push(newQuestion);
             }
         });
-        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(data)).then(r => console.log(r));
+        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(data));
     });
 }
 
@@ -38,7 +38,7 @@ export function deleteDeck(title) {
             }
             return newObj;
         }, {});
-        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(newData)).then(r => console.log(r));
+        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(newData));
     });
 }
 

@@ -18,7 +18,7 @@ class DeckList extends Component {
     deleteAllHandler() {
         const {dispatch} = this.props;
         dispatch(deleteAllDecksInStore());
-        deleteAll().then(r => console.log(r));
+        deleteAll();
     }
 
     render() {

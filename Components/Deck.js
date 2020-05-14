@@ -22,9 +22,8 @@ class CardDeck extends Component {
     deleteDeck() {
         const {navigation, route, dispatch} = this.props;
         const {title} = route.params;
-        console.log(title);
 
-        deleteDeck(title).then(r => console.log(title));
+        deleteDeck(title);
         navigation.navigate("Home");
         dispatch(deleteDeckInStore(title));
     }
